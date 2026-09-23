@@ -1,0 +1,19 @@
+---
+title: A média esconde a fila
+description: p50, p95 e p99 da mesma rota contam três histórias. Clique na figura.
+date: "2026-09-23"
+categories:
+  - performance
+  - arquitetura
+draft: false
+---
+
+import { SeriesChart } from "./series-chart"
+
+Uma média de 80 ms parece saudável. O timeout do cliente está em 500 ms. Os dois números cabem no mesmo slide e ainda assim o usuário vê erro.
+
+<SeriesChart />
+
+O gráfico acima é um componente React ao lado deste arquivo. O estado mora nele: clicar num percentil troca a leitura, sem recarregar a página. D3, Observable Plot ou Three.js entram do mesmo jeito, num `import` dentro da nota.
+
+Quando a decisão for de capacidade, eu começo pelo p99. A média fica para saber se o caminho feliz ainda está barato.

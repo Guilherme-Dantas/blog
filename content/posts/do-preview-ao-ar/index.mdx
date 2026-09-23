@@ -1,0 +1,21 @@
+---
+title: Do preview ao ar
+description: Uma nota nasce numa pasta, aparece no preview local e sobe com o push.
+date: "2026-09-20"
+categories:
+  - ferramentas
+draft: false
+---
+
+O preview é o `npm run dev`. O que você lê em localhost é o mesmo React que a Vercel publica.
+
+Uma nota é uma pasta em `content/posts`. O nome da pasta vira o endereço. O `index.mdx` leva o texto e, se a nota precisar de uma figura, um componente `.tsx` fica do lado.
+
+```text
+content/posts/minha-nota/index.mdx
+content/posts/minha-nota/figura.tsx
+```
+
+Categoria nova não pede cadastro. Ela aparece na home quando alguma nota publicada a usa. Rascunho fica com `draft: true`: visível no preview, ausente do build de produção, da home pública e do RSS.
+
+Push na branch principal publica. Pull request ganha uma URL de preview na Vercel.
