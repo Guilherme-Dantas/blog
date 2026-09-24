@@ -1,5 +1,8 @@
 export function siteUrl(): string {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  const deploymentUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000"
+  const configured = process.env.NEXT_PUBLIC_SITE_URL ?? deploymentUrl
   return configured.replace(/\/$/, "")
 }
 
